@@ -35,41 +35,45 @@ This document tracks all tasks and changes made to the project.
 ---
 
 ### Task 7: Questions Page Implementation
-**Status:** In Progress
-**Description:** Create Q&A page similar to StackOverflow/Reddit with question submission, list display, agent answers and realtime display
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Q&A page with question submission, list, detail/edit, and agent answers
 
 **Subtasks:**
 - [x] 7.1 Create Questions page layout and routing (`/questions`)
-- [ ] 7.2 Create question list component with sorting/filtering
-- [ ] 7.3 Create question detail page (`/questions/[id]`)
-- [ ] 7.4 Create question form component (new question)
-- [ ] 7.5 Create answers list component
-- [ ] 7.6 Create API route for questions CRUD
-- [ ] 7.7 Create API route for answers CRUD
-- [ ] 7.8 Implement Supabase realtime subscription for questions
-- [ ] 7.9 Implement Supabase realtime subscription for answers
+- [x] 7.2 Question list with create form (sort, optional category filter)
+- [x] 7.3 Question detail page (`/questions/[id]`) with view and edit (owner only)
+- [x] 7.4 Create question form (title, content, category); POST `/api/questions`
+- [x] 7.5 Answers list on question detail (from `answers` table, agent name + time)
+- [x] 7.6 API: GET/POST `/api/questions`, GET/PATCH `/api/questions/[id]`, GET `/api/questions/[id]/answers`
+- [x] 7.7 Question status: set to `answered` when workflow posts an answer
+- [ ] 7.8 Implement Supabase realtime subscription for questions (optional)
+- [ ] 7.9 Implement Supabase realtime subscription for answers (optional)
+
+**Files:** `src/app/questions/page.tsx`, `src/app/questions/[id]/page.tsx`, `src/app/api/questions/route.ts`, `src/app/api/questions/[id]/route.ts`, `src/app/api/questions/[id]/answers/route.ts`
 
 ---
 
 ### Task 9: Agent Builder with ReactFlow
-**Status:** Pending
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
 **Description:** Create dashboard using ReactFlow for visual agent building with three node types: Trigger, Agent, and Response
-
-**Note:** Dashboard route and layout exist; builder UI and ReactFlow nodes not yet implemented.
 
 **Subtasks:**
 - [x] 9.1 Create Dashboard layout and routing (`/dashboard`)
-- [ ] 9.2 Create agents list page (`/dashboard/agents`)
-- [ ] 9.3 Create agent builder page (`/dashboard/agents/builder/[id]`)
-- [ ] 9.4 Setup ReactFlow canvas with custom nodes
-- [ ] 9.5 Create Trigger node component
-- [ ] 9.6 Create Agent node component
-- [ ] 9.7 Create Response node component
-- [ ] 9.8 Implement drag-and-drop node functionality
-- [ ] 9.9 Create API route for agents CRUD
-- [ ] 9.10 Create API route for flows CRUD
-- [ ] 9.11 Save/load flow data to database
-- [ ] 9.12 Add Persian translations for all UI text
+- [x] 9.2 Create agents list on dashboard (create agent, list agents, link to builder)
+- [x] 9.3 Create agent builder page (`/dashboard/agents/builder/[agentId]`)
+- [x] 9.4 Setup ReactFlow canvas with custom nodes
+- [x] 9.5 Create Trigger node component
+- [x] 9.6 Create Agent node component
+- [x] 9.7 Create Response node component
+- [x] 9.8 Implement drag-and-drop (canvas) and add-node panel (Trigger, Agent, Response)
+- [x] 9.9 Create API route for agents CRUD (`/api/agents`, `/api/agents/[id]`)
+- [x] 9.10 Create API route for flows CRUD (`/api/agents/[id]/flows`, `/api/flows/[id]`)
+- [x] 9.11 Save/load flow data to database
+- [x] 9.12 Add Persian/English translations for dashboard and builder UI
+
+**Files:** `src/app/api/agents/*`, `src/app/api/flows/[id]/*`, `src/components/flow/*`, `src/app/dashboard/page.tsx`, `src/app/dashboard/agents/builder/[agentId]/page.tsx`, `src/contexts/I18nContext.tsx` (dashboard keys)
 
 ---
 
@@ -116,16 +120,54 @@ This document tracks all tasks and changes made to the project.
 ---
 
 ### Task 15: Trigger & Flow Execution System
-**Status:** Pending
-**Description:** Implement the trigger system that executes flows when questions are created
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Workflow runs when a question is created; processes flows with trigger_type=question_created; Agent nodes call LLM; Response node saves answers
 
 **Subtasks:**
-- [ ] 15.1 Create trigger handler service
-- [ ] 15.2 Implement question_created trigger logic
-- [ ] 15.3 Create flow executor (processes nodes)
-- [ ] 15.4 Connect Agent nodes to AI API
-- [ ] 15.5 Implement Response node to save answers
-- [ ] 15.6 Add error handling and logging
+- [x] 15.1 Trigger: POST `/api/questions` calls `runWorkflowsForQuestion(questionId)` after insert
+- [x] 15.2 question_created: workflow loads active flows with `trigger_type=question_created`, `is_active=true`
+- [x] 15.3 Flow executor: `src/lib/workflow/run.ts` – graph order (trigger→agent→response), substitute `{{question.*}}`, `{{previous_output}}`
+- [x] 15.4 Agent nodes: OpenAI-compatible `/chat/completions`; LLM config per user (multi-LLM); per-agent selection in builder
+- [x] 15.5 Response node: insert into `answers`; update question `status` to `answered`
+- [x] 15.6 Error handling and logging: `[workflow]` logs (start, flows, each agent call, answer posted, finish); errors logged in API catch; service role key check with clear error
+
+**Env:** `SUPABASE_SERVICE_ROLE_KEY` required (workflow uses service role client). See `.env.example` / `.env.local.example`.
+
+**Files:** `src/lib/workflow/run.ts`, `src/app/api/questions/route.ts`, `src/app/api/webhooks/question-created/route.ts`, `src/lib/supabase/server.ts`
+
+---
+
+### Task: LLM Connection (Multi-LLM)
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Users define multiple LLM configs (name, api_base_url, api_key); each agent selects one in the flow builder; workflow uses selected config for that agent’s nodes
+
+**Done:** Table `llm_configs` (id, user_id, name, api_base_url, api_key). API: GET/POST `/api/llm-config`, GET/PATCH/DELETE `/api/llm-config/[id]`. Dashboard: list, add, edit, delete LLM configs. Builder: agent config panel has “LLM for this agent” dropdown; stored in `node.data.llm_config_id`. Workflow loads config by id (ownership checked); fallback to first config for user.
+
+**Files:** `supabase/migrations/004_llm_configs_multi.sql`, `src/app/api/llm-config/*`, dashboard LLM section, builder agent config
+
+---
+
+### Task: Agent Run Logs (Debug)
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Table and UI to debug agent runs: each LLM call and errors are stored and visible
+
+**Done:** Table `agent_run_logs` (flow_run_id, question_id, flow_id, agent_id, node_id, status, model, system_prompt, user_content, response_content, error_message, created_at). Workflow inserts one row per agent node (success or error). API: GET `/api/agent-runs?question_id=&agent_id=&limit=`. Dashboard: “Agent run logs” section with table (time, question link, agent, node, status), filter by agent, expand to show error/response. RLS: users see only logs for their agents.
+
+**Files:** `supabase/migrations/005_agent_run_logs.sql`, `src/lib/workflow/run.ts`, `src/app/api/agent-runs/route.ts`, dashboard run logs section
+
+---
+
+### Task: Default Flow & Empty Flow Fix
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** New flows get default trigger→agent→response graph; opening builder with empty flow auto-saves default so workflow can run
+
+**Done:** POST `/api/agents/[id]/flows` with empty nodes/edges inserts default nodes and edges. Flow Builder: on load, if flow has no nodes/edges, PATCH flow with default graph so DB is runnable without manual Save.
+
+**Files:** `src/app/api/agents/[id]/flows/route.ts`, `src/app/dashboard/agents/builder/[agentId]/page.tsx`
 
 ---
 
@@ -134,7 +176,7 @@ This document tracks all tasks and changes made to the project.
 **Description:** Configure deployment and environment variables
 
 **Subtasks:**
-- [ ] 17.1 Setup environment variables documentation
+- [ ] 17.1 Setup environment variables documentation (partial: .env.example has SUPABASE_SERVICE_ROLE_KEY)
 - [ ] 17.2 Configure production build
 - [ ] 17.3 Add deployment scripts
 - [ ] 17.4 Setup CI/CD if needed

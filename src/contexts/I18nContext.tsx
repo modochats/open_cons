@@ -21,7 +21,8 @@ const translations: Record<Locale, Messages> = {
       save: 'ذخیره',
       delete: 'حذف',
       edit: 'ویرایش',
-      close: 'بستن'
+      close: 'بستن',
+      refresh: 'بروزرسانی'
     },
     auth: {
       login: 'ورود',
@@ -87,6 +88,7 @@ const translations: Record<Locale, Messages> = {
       yourQuestion: 'پرسش شما',
       questionTitle: 'عنوان پرسش',
       questionDetails: 'جزئیات پرسش',
+      category: 'دسته‌بندی',
       submit: 'ارسال پرسش',
       noQuestions: 'هنوز پرسشی وجود ندارد',
       answers: 'پاسخ‌ها',
@@ -96,7 +98,11 @@ const translations: Record<Locale, Messages> = {
       sortBy: 'مرتب‌سازی بر اساس',
       latest: 'جدیدترین',
       oldest: 'قدیمی‌ترین',
-      mostAnswers: 'بیشترین پاسخ'
+      mostAnswers: 'بیشترین پاسخ',
+      editQuestion: 'ویرایش پرسش',
+      backToList: 'بازگشت به لیست',
+      saveChanges: 'ذخیره تغییرات',
+      createQuestion: 'ایجاد پرسش'
     },
     dashboard: {
       title: 'داشبورد',
@@ -106,20 +112,69 @@ const translations: Record<Locale, Messages> = {
       agentBuilder: 'سازنده عامل',
       flowBuilder: 'سازنده جریان',
       saveFlow: 'ذخیره جریان',
+      backToDashboard: 'بازگشت به داشبورد',
+      flowName: 'نام جریان',
+      agentConfig: 'تنظیمات عامل',
+      model: 'مدل',
+      modelPlaceholder: 'مثلاً gpt-4o',
+      systemPrompt: 'پرامپت سیستمی',
+      systemPromptPlaceholder: 'نقش و دستورالعمل مدل را بنویسید...',
+      inputsFromTrigger: 'ورودی‌های از محرک',
+      wholeQuestion: 'کل پرسش (عنوان + متن)',
+      triggerSends: 'خروجی محرک',
+      closeConfig: 'بستن',
+      llmConnection: 'اتصال‌های LLM',
+      llmConnectionDesc: 'چند LLM تعریف کنید؛ در هر عامل یکی را انتخاب کنید.',
+      llmName: 'نام',
+      llmNamePlaceholder: 'مثلاً OpenAI',
+      addLlm: 'افزودن LLM',
+      apiBaseUrl: 'آدرس پایه API',
+      apiBaseUrlPlaceholder: 'مثلاً https://api.openai.com/v1',
+      apiKey: 'کلید API',
+      apiKeyPlaceholder: 'کلید API را وارد کنید',
+      saveLlmConfig: 'ذخیره',
+      llmConfigured: 'ذخیره شد.',
+      selectLlm: 'انتخاب LLM',
+      selectLlmForAgent: 'LLM این عامل',
+      dragIntoPrompt: 'به پرامپت بکشید',
+      previousOutput: 'خروجی عامل قبلی',
+      questionFields: {
+        id: 'شناسه',
+        title: 'عنوان',
+        content: 'متن پرسش',
+        category: 'دسته‌بندی',
+        status: 'وضعیت',
+        created_at: 'تاریخ ایجاد'
+      },
       nodes: {
         trigger: 'محرک',
         agent: 'عامل',
         response: 'پاسخ'
-      }
+      },
+      runLogs: 'لاگ اجرای عامل‌ها',
+      runLogsDesc: 'تماس‌های LLM و خطاها برای دیباگ.',
+      noRunLogs: 'هنوز لاگی ثبت نشده',
+      filterByAgent: 'فیلتر بر اساس عامل',
+      allAgents: 'همه عامل‌ها',
+      runTime: 'زمان',
+      question: 'پرسش',
+      node: 'گره',
+      runStatus: 'وضعیت',
+      runStatusSuccess: 'موفق',
+      runStatusError: 'خطا',
+      runError: 'خطا',
+      runResponse: 'پاسخ'
     },
     agent: {
       name: 'نام عامل',
       description: 'توضیحات',
+      avatarUrl: 'آدرس تصویر پروفایل',
       status: 'وضعیت',
       active: 'فعال',
       inactive: 'غیرفعال',
       created: 'ایجاد شده',
-      updated: 'به‌روزرسانی شده'
+      updated: 'به‌روزرسانی شده',
+      edit: 'ویرایش'
     }
   },
   en: {
@@ -132,7 +187,8 @@ const translations: Record<Locale, Messages> = {
       save: 'Save',
       delete: 'Delete',
       edit: 'Edit',
-      close: 'Close'
+      close: 'Close',
+      refresh: 'Refresh'
     },
     auth: {
       login: 'Login',
@@ -198,6 +254,7 @@ const translations: Record<Locale, Messages> = {
       yourQuestion: 'Your Question',
       questionTitle: 'Question Title',
       questionDetails: 'Question Details',
+      category: 'Category',
       submit: 'Submit Question',
       noQuestions: 'No questions yet',
       answers: 'Answers',
@@ -207,7 +264,11 @@ const translations: Record<Locale, Messages> = {
       sortBy: 'Sort by',
       latest: 'Latest',
       oldest: 'Oldest',
-      mostAnswers: 'Most Answers'
+      mostAnswers: 'Most Answers',
+      editQuestion: 'Edit question',
+      backToList: 'Back to list',
+      saveChanges: 'Save changes',
+      createQuestion: 'Create question'
     },
     dashboard: {
       title: 'Dashboard',
@@ -217,20 +278,69 @@ const translations: Record<Locale, Messages> = {
       agentBuilder: 'Agent Builder',
       flowBuilder: 'Flow Builder',
       saveFlow: 'Save Flow',
+      backToDashboard: 'Back to Dashboard',
+      flowName: 'Flow Name',
+      agentConfig: 'Agent Config',
+      model: 'Model',
+      modelPlaceholder: 'e.g. gpt-4o',
+      systemPrompt: 'System Prompt',
+      systemPromptPlaceholder: 'Define role and instructions for the model...',
+      inputsFromTrigger: 'Inputs from Trigger',
+      wholeQuestion: 'Whole question (title + content)',
+      triggerSends: 'Trigger sends',
+      closeConfig: 'Close',
+      llmConnection: 'LLM connections',
+      llmConnectionDesc: 'Define multiple LLMs; select one per agent in the flow builder.',
+      llmName: 'Name',
+      llmNamePlaceholder: 'e.g. OpenAI',
+      addLlm: 'Add LLM',
+      apiBaseUrl: 'API base URL',
+      apiBaseUrlPlaceholder: 'e.g. https://api.openai.com/v1',
+      apiKey: 'API key',
+      apiKeyPlaceholder: 'Enter your API key',
+      saveLlmConfig: 'Save',
+      llmConfigured: 'Saved.',
+      selectLlm: 'Select LLM',
+      selectLlmForAgent: 'LLM for this agent',
+      dragIntoPrompt: 'Drag into prompt',
+      previousOutput: 'Previous agent output',
+      questionFields: {
+        id: 'ID',
+        title: 'Title',
+        content: 'Content',
+        category: 'Category',
+        status: 'Status',
+        created_at: 'Created at'
+      },
       nodes: {
         trigger: 'Trigger',
         agent: 'Agent',
         response: 'Response'
-      }
+      },
+      runLogs: 'Agent run logs',
+      runLogsDesc: 'LLM calls and errors for debugging.',
+      noRunLogs: 'No run logs yet',
+      filterByAgent: 'Filter by agent',
+      allAgents: 'All agents',
+      runTime: 'Time',
+      question: 'Question',
+      node: 'Node',
+      runStatus: 'Status',
+      runStatusSuccess: 'Success',
+      runStatusError: 'Error',
+      runError: 'Error',
+      runResponse: 'Response'
     },
     agent: {
       name: 'Agent Name',
       description: 'Description',
+      avatarUrl: 'Profile image URL',
       status: 'Status',
       active: 'Active',
       inactive: 'Inactive',
       created: 'Created',
-      updated: 'Updated'
+      updated: 'Updated',
+      edit: 'Edit'
     }
   }
 }
