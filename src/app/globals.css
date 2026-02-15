@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-purple: #a855f7;
+  --color-neon-pink: #ec4899;
+  --color-neon-blue: #3b82f6;
+  --color-dark-900: #0a0a0f;
+  --color-dark-800: #12121a;
+  --color-dark-700: #1a1a25;
+
+  --shadow-neon: 0 0 5px var(--color-neon-purple), 0 0 20px var(--color-neon-purple);
+  --shadow-neon-lg: 0 0 10px var(--color-neon-purple), 0 0 40px var(--color-neon-purple), 0 0 80px var(--color-neon-purple);
+  --shadow-neon-pink: 0 0 5px var(--color-neon-pink), 0 0 20px var(--color-neon-pink);
+
+  --animate-neon-pulse: neon-pulse 2s ease-in-out infinite alternate;
+
+  /* Font families */
+  --font-sans: var(--font-vazir), system-ui, sans-serif;
+  --font-vazir: var(--font-vazir), "Vazir", system-ui, sans-serif;
+
+  @keyframes neon-pulse {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+}
+
+body {
+  background-color: var(--color-dark-900);
+}
+
+/* Persian/Farsi text support */
+[dir="rtl"],
+.rtl,
+[lang="fa"],
+[lang="fa-IR"],
+.persian,
+.farsi {
+  font-family: var(--font-vazir), "Vazir", system-ui, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Mixed content - Persian text within LTR context */
+.persian-text,
+.farsi-text {
+  font-family: var(--font-vazir), "Vazir", system-ui, sans-serif;
+}
+
+@utility text-neon-glow {
+  text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 40px #a855f7;
+}
+
+@utility border-neon-glow {
+  box-shadow: 0 0 5px #a855f7, 0 0 10px #a855f7, inset 0 0 5px rgba(168, 85, 247, 0.1);
+}
+
+@utility bg-gradient-neon {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+}
