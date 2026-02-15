@@ -14,9 +14,7 @@
 
   --animate-neon-pulse: neon-pulse 2s ease-in-out infinite alternate;
 
-  /* Font families */
-  --font-sans: var(--font-vazir), system-ui, sans-serif;
-  --font-vazir: var(--font-vazir), "Vazir", system-ui, sans-serif;
+  --font-sans: system-ui, sans-serif;
 
   @keyframes neon-pulse {
     0% { opacity: 1; }
@@ -28,7 +26,10 @@ body {
   background-color: var(--color-dark-900);
 }
 
-/* Persian/Farsi text support */
+.font-vazir {
+  font-family: var(--font-vazir), "Vazir", system-ui, sans-serif;
+}
+
 [dir="rtl"],
 .rtl,
 [lang="fa"],
@@ -40,7 +41,6 @@ body {
   text-align: right;
 }
 
-/* Mixed content - Persian text within LTR context */
 .persian-text,
 .farsi-text {
   font-family: var(--font-vazir), "Vazir", system-ui, sans-serif;

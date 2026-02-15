@@ -1,0 +1,111 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "username": "Username",
+    "welcome": "Welcome",
+    "welcomeBack": "Welcome Back",
+    "loginDescription": "Sign in to continue to your account",
+    "registerDescription": "Create a new account",
+    "loginButton": "Sign In",
+    "registerButton": "Create Account",
+    "loggingIn": "Signing in...",
+    "registering": "Registering...",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "emailRequired": "Email is required",
+    "usernameRequired": "Username is required"
+  },
+  "navigation": {
+    "home": "Home",
+    "questions": "Questions",
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "profile": "Profile"
+  },
+  "language": {
+    "switch": "Change Language",
+    "persian": "فارسی",
+    "english": "English"
+  },
+  "home": {
+    "title": "Open Consultant",
+    "subtitle": "Your AI-powered consulting assistant",
+    "description": "Q&A platform powered by AI where intelligent agents answer your questions",
+    "getStarted": "Get Started",
+    "launchApp": "Launch App",
+    "features": {
+      "fast": {
+        "title": "Fast",
+        "desc": "Optimized for speed and performance"
+      },
+      "modern": {
+        "title": "Modern",
+        "desc": "Built with the latest technologies"
+      },
+      "beautiful": {
+        "title": "Beautiful",
+        "desc": "Stunning dark neon aesthetics"
+      }
+    }
+  },
+  "questions": {
+    "title": "Questions",
+    "askQuestion": "Ask Question",
+    "yourQuestion": "Your Question",
+    "questionTitle": "Question Title",
+    "questionDetails": "Question Details",
+    "submit": "Submit Question",
+    "noQuestions": "No questions yet",
+    "answers": "Answers",
+    "noAnswers": "No answers yet",
+    "askedBy": "Asked by",
+    "answeredBy": "Answered by",
+    "sortBy": "Sort by",
+    "latest": "Latest",
+    "oldest": "Oldest",
+    "mostAnswers": "Most Answers"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "myAgents": "My Agents",
+    "createAgent": "Create New Agent",
+    "noAgents": "No agents yet",
+    "agentBuilder": "Agent Builder",
+    "flowBuilder": "Flow Builder",
+    "saveFlow": "Save Flow",
+    "nodes": {
+      "trigger": "Trigger",
+      "agent": "Agent",
+      "response": "Response"
+    }
+  },
+  "agent": {
+    "name": "Agent Name",
+    "description": "Description",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "created": "Created",
+    "updated": "Updated"
+  }
+}

@@ -139,15 +139,48 @@ This document tracks all tasks and changes made to the project.
 ---
 
 ### Task 19: Multilingual Support (i18n)
-**Status:** Pending
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
 **Description:** Add internationalization support for multiple languages while keeping Persian as default
 
 **Subtasks:**
-- [ ] 19.1 Setup i18n library (next-intl or i18next)
-- [ ] 19.2 Create translation files for Persian (fa) - default
-- [ ] 19.3 Create translation files for English (en)
-- [ ] 19.4 Create language switcher component
-- [ ] 19.5 Add language detection based on user preference
-- [ ] 19.6 Update layout to support dynamic direction (RTL/LTR)
-- [ ] 19.7 Add font switching for different languages
-- [ ] 19.8 Store user language preference in database
+- [x] 19.1 Setup i18n library (custom implementation)
+- [x] 19.2 Create translation files for Persian (fa) - default
+- [x] 19.3 Create translation files for English (en)
+- [x] 19.4 Create language switcher component
+- [x] 19.5 Add language detection based on user preference
+- [x] 19.6 Update layout to support dynamic direction (RTL/LTR)
+- [x] 19.7 Add font switching for different languages
+- [x] 19.8 Store user language preference in database
+
+**Implementation Details:**
+- Created custom i18n context with React Context API
+- Dynamic layout with RTL/LTR support
+- Vazir font for Persian, sans-serif for English
+- Database integration with user_preferences table
+- localStorage fallback for non-authenticated users
+- Comprehensive translations for all features
+
+**Files Modified/Created:**
+- `src/app/ClientLayout.tsx` (created)
+- `src/contexts/I18nContext.tsx` (enhanced)
+- `src/components/LanguageSwitcher.tsx` (fixed)
+- `src/components/auth/AuthButton.tsx` (translated)
+- `src/messages/fa.json` (expanded)
+- `src/messages/en.json` (expanded)
+- `supabase/migrations/add_user_preferences.sql` (created)
+- `docs/i18n-implementation.md` (created)
+
+---
+
+### Task 11: User Authentication
+**Status:** Completed
+**Description:** Implement user authentication with Supabase Auth
+
+**Subtasks:**
+- [x] 11.1 Create auth context and hooks
+- [x] 11.2 Create login page (`/login`)
+- [x] 11.3 Create register page (`/register`)
+- [x] 11.4 Create auth middleware
+- [x] 11.5 Add logout functionality
+- [x] 11.6 Add Persian translations for all UI text

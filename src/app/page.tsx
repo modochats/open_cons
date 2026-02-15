@@ -1,50 +1,56 @@
-export default function Home() {
+'use client'
+
+import Link from 'next/link'
+import { useI18n } from '@/contexts/I18nContext'
+import { Header } from '@/components/Header'
+
+export default function HomePage() {
+  const { t } = useI18n()
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8">
-      {/* Neon glow effect behind title */}
-      <div className="relative">
-        <div className="absolute inset-0 blur-3xl bg-neon-purple/30 rounded-full scale-150" />
-        <h1 className="relative text-6xl font-bold text-white text-neon-glow mb-4">
-          Open Consultant
-        </h1>
-      </div>
-
-      <p className="text-xl text-gray-400 mb-8">
-        Your AI-powered consulting assistant
-      </p>
-
-      {/* Neon card example */}
-      <div className="relative group">
-        <div className="absolute -inset-1 bg-gradient-neon rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-neon-pulse" />
-        <div className="relative bg-dark-800 border border-neon-purple/30 rounded-lg p-8">
-          <h2 className="text-2xl font-semibold text-neon-purple mb-4">
-            Get Started
-          </h2>
-          <p className="text-gray-300 mb-6">
-            Build something amazing with Next.js, Tailwind CSS, and a stunning dark neon aesthetic.
+    <>
+      <Header />
+      <main className="mx-auto max-w-6xl px-4 py-16">
+        <section className="text-center">
+          <h1 className="text-4xl font-bold text-white md:text-5xl">
+            {t('home.title')}
+          </h1>
+          <p className="mt-4 text-xl text-gray-400">
+            {t('home.subtitle')}
           </p>
-          <button className="px-6 py-3 bg-neon-purple/20 border border-neon-purple text-neon-purple rounded-lg hover:bg-neon-purple hover:text-white transition-all duration-300 shadow-neon hover:shadow-neon-lg">
-            Launch App
-          </button>
-        </div>
-      </div>
-
-      {/* Feature cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl">
-        {[
-          { title: "Fast", desc: "Optimized for speed and performance" },
-          { title: "Modern", desc: "Built with the latest technologies" },
-          { title: "Beautiful", desc: "Stunning dark neon aesthetics" },
-        ].map((feature) => (
-          <div
-            key={feature.title}
-            className="bg-dark-800 border border-neon-purple/20 rounded-lg p-6 hover:border-neon-purple/50 transition-colors duration-300"
-          >
-            <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-            <p className="text-gray-400 text-sm">{feature.desc}</p>
+          <p className="mt-2 text-gray-500">
+            {t('home.description')}
+          </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <Link
+              href="/questions"
+              className="rounded-lg bg-neon-purple px-6 py-3 font-medium text-white hover:bg-neon-purple/90 transition-colors"
+            >
+              {t('home.launchApp')}
+            </Link>
+            <Link
+              href="/dashboard"
+              className="rounded-lg border border-neon-purple px-6 py-3 font-medium text-neon-purple hover:bg-neon-purple/10 transition-colors"
+            >
+              {t('navigation.dashboard')}
+            </Link>
           </div>
-        ))}
-      </div>
-    </main>
-  );
+        </section>
+        <section className="mt-24 grid gap-8 md:grid-cols-3">
+          <div className="rounded-xl border border-dark-700 bg-dark-800 p-6">
+            <h3 className="text-lg font-medium text-neon-purple">{t('home.features.fast.title')}</h3>
+            <p className="mt-2 text-gray-400">{t('home.features.fast.desc')}</p>
+          </div>
+          <div className="rounded-xl border border-dark-700 bg-dark-800 p-6">
+            <h3 className="text-lg font-medium text-neon-purple">{t('home.features.modern.title')}</h3>
+            <p className="mt-2 text-gray-400">{t('home.features.modern.desc')}</p>
+          </div>
+          <div className="rounded-xl border border-dark-700 bg-dark-800 p-6">
+            <h3 className="text-lg font-medium text-neon-purple">{t('home.features.beautiful.title')}</h3>
+            <p className="mt-2 text-gray-400">{t('home.features.beautiful.desc')}</p>
+          </div>
+        </section>
+      </main>
+    </>
+  )
 }

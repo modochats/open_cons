@@ -1,0 +1,111 @@
+{
+  "common": {
+    "loading": "در حال بارگذاری...",
+    "error": "خطا",
+    "success": "موفق",
+    "cancel": "لغو",
+    "submit": "ثبت",
+    "save": "ذخیره",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "close": "بستن"
+  },
+  "auth": {
+    "login": "ورود",
+    "register": "ثبت نام",
+    "logout": "خروج",
+    "email": "ایمیل",
+    "password": "رمز عبور",
+    "confirmPassword": "تکرار رمز عبور",
+    "username": "نام کاربری",
+    "welcome": "خوش آمدید",
+    "welcomeBack": "خوش بازگشت",
+    "loginDescription": "برای ادامه وارد حساب کاربری خود شوید",
+    "registerDescription": "حساب کاربری جدید ایجاد کنید",
+    "loginButton": "ورود به حساب",
+    "registerButton": "ایجاد حساب",
+    "loggingIn": "در حال ورود...",
+    "registering": "در حال ثبت نام...",
+    "noAccount": "حساب کاربری ندارید؟",
+    "hasAccount": "قبلاً ثبت نام کرده‌اید؟",
+    "signUp": "ثبت نام",
+    "signIn": "ورود",
+    "passwordsDoNotMatch": "رمزهای عبور مطابقت ندارند",
+    "passwordTooShort": "رمز عبور باید حداقل ۶ کاراکتر باشد",
+    "emailRequired": "ایمیل الزامی است",
+    "usernameRequired": "نام کاربری الزامی است"
+  },
+  "navigation": {
+    "home": "خانه",
+    "questions": "پرسش‌ها",
+    "dashboard": "داشبورد",
+    "agents": "عامل‌ها",
+    "profile": "پروفایل"
+  },
+  "language": {
+    "switch": "تغییر زبان",
+    "persian": "فارسی",
+    "english": "English"
+  },
+  "home": {
+    "title": "مشاور هوشمند باز",
+    "subtitle": "دستیار مشاوره هوشمند شما",
+    "description": "پلتفرم پرسش و پاسخ با قدرت هوش مصنوعی که در آن عامل‌های هوشمند به سوالات شما پاسخ می‌دهند",
+    "getStarted": "شروع کنید",
+    "launchApp": "اجرای برنامه",
+    "features": {
+      "fast": {
+        "title": "سریع",
+        "desc": "بهینه شده برای سرعت و عملکرد"
+      },
+      "modern": {
+        "title": "مدرن",
+        "desc": "ساخته شده با آخرین فناوری‌ها"
+      },
+      "beautiful": {
+        "title": "زیبا",
+        "desc": "زیبایی تیره نئونی خیره‌کننده"
+      }
+    }
+  },
+  "questions": {
+    "title": "پرسش‌ها",
+    "askQuestion": "پرسش جدید",
+    "yourQuestion": "پرسش شما",
+    "questionTitle": "عنوان پرسش",
+    "questionDetails": "جزئیات پرسش",
+    "submit": "ارسال پرسش",
+    "noQuestions": "هنوز پرسشی وجود ندارد",
+    "answers": "پاسخ‌ها",
+    "noAnswers": "هنوز پاسخی وجود ندارد",
+    "askedBy": "پرسیده شده توسط",
+    "answeredBy": "پاسخ داده شده توسط",
+    "sortBy": "مرتب‌سازی بر اساس",
+    "latest": "جدیدترین",
+    "oldest": "قدیمی‌ترین",
+    "mostAnswers": "بیشترین پاسخ"
+  },
+  "dashboard": {
+    "title": "داشبورد",
+    "myAgents": "عامل‌های من",
+    "createAgent": "ایجاد عامل جدید",
+    "noAgents": "هنوز عامل‌های وجود ندارد",
+    "agentBuilder": "سازنده عامل",
+    "flowBuilder": "سازنده جریان",
+    "saveFlow": "ذخیره جریان",
+    "nodes": {
+      "trigger": "محرک",
+      "agent": "عامل",
+      "response": "پاسخ"
+    }
+  },
+  "agent": {
+    "name": "نام عامل",
+    "description": "توضیحات",
+    "status": "وضعیت",
+    "active": "فعال",
+    "inactive": "غیرفعال",
+    "created": "ایجاد شده",
+    "updated": "به‌روزرسانی شده"
+  }
+}

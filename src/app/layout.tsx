@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { vazir } from "@/fonts/vazir";
+import { ClientLayout } from "./ClientLayout";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
-      <body className={`${vazir.variable} font-vazir bg-dark-900 text-white antialiased`}>
-        {children}
+    <html className={`${vazir.variable} font-vazir`} suppressHydrationWarning>
+      <body className="bg-dark-900 text-white antialiased min-h-screen" suppressHydrationWarning>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );
