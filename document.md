@@ -48,7 +48,6 @@ This document tracks all tasks and changes made to the project.
 - [ ] 7.7 Create API route for answers CRUD
 - [ ] 7.8 Implement Supabase realtime subscription for questions
 - [ ] 7.9 Implement Supabase realtime subscription for answers
-- [ ] 7.10 Add Persian translations for all UI text
 
 ---
 
@@ -121,3 +120,34 @@ This document tracks all tasks and changes made to the project.
 - [ ] 17.2 Configure production build
 - [ ] 17.3 Add deployment scripts
 - [ ] 17.4 Setup CI/CD if needed
+
+---
+
+### Task 19: Multilingual Support (i18n)
+**Status:** Pending
+**Description:** Add internationalization support for multiple languages
+
+**Subtasks:**
+- [ ] 19.1 Setup i18n library (next-intl or similar)
+- [ ] 19.2 Create translation files for Persian (fa)
+- [ ] 19.3 Create translation files for English (en)
+- [ ] 19.4 Add language switcher component
+- [ ] 19.5 Implement language detection middleware
+- [ ] 19.6 Update database schema to support translations
+- [ ] 19.7 Apply translations to all UI components
+
+---
+
+### Task 19: Multilingual Support (i18n)
+**Status:** Pending
+**Description:** Add internationalization support for multiple languages while keeping Persian as default
+
+**Subtasks:**
+- [ ] 19.1 Setup i18n library (next-intl or i18next)
+- [ ] 19.2 Create translation files for Persian (fa) - default
+- [ ] 19.3 Create translation files for English (en)
+- [ ] 19.4 Create language switcher component
+- [ ] 19.5 Add language detection based on user preference
+- [ ] 19.6 Update layout to support dynamic direction (RTL/LTR)
+- [ ] 19.7 Add font switching for different languages
+- [ ] 19.8 Store user language preference in database
