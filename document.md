@@ -35,11 +35,11 @@ This document tracks all tasks and changes made to the project.
 ---
 
 ### Task 7: Questions Page Implementation
-**Status:** Pending
+**Status:** In Progress
 **Description:** Create Q&A page similar to StackOverflow/Reddit with question submission, list display, agent answers and realtime display
 
 **Subtasks:**
-- [ ] 7.1 Create Questions page layout and routing (`/questions`)
+- [x] 7.1 Create Questions page layout and routing (`/questions`)
 - [ ] 7.2 Create question list component with sorting/filtering
 - [ ] 7.3 Create question detail page (`/questions/[id]`)
 - [ ] 7.4 Create question form component (new question)
@@ -55,8 +55,10 @@ This document tracks all tasks and changes made to the project.
 **Status:** Pending
 **Description:** Create dashboard using ReactFlow for visual agent building with three node types: Trigger, Agent, and Response
 
+**Note:** Dashboard route and layout exist; builder UI and ReactFlow nodes not yet implemented.
+
 **Subtasks:**
-- [ ] 9.1 Create Dashboard layout and routing (`/dashboard`)
+- [x] 9.1 Create Dashboard layout and routing (`/dashboard`)
 - [ ] 9.2 Create agents list page (`/dashboard/agents`)
 - [ ] 9.3 Create agent builder page (`/dashboard/agents/builder/[id]`)
 - [ ] 9.4 Setup ReactFlow canvas with custom nodes
@@ -71,29 +73,45 @@ This document tracks all tasks and changes made to the project.
 
 ---
 
-### Task 11: User Authentication
-**Status:** Pending
-**Description:** Implement user authentication with Supabase Auth
-
-**Subtasks:**
-- [ ] 11.1 Create auth context and hooks
-- [ ] 11.2 Create login page (`/login`)
-- [ ] 11.3 Create register page (`/register`)
-- [ ] 11.4 Create auth middleware
-- [ ] 11.5 Add logout functionality
-- [ ] 11.6 Add Persian translations for all UI text
-
----
-
 ### Task 13: Homepage
-**Status:** Pending
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
 **Description:** Create main landing page with navigation
 
 **Subtasks:**
-- [ ] 13.1 Create navigation header component
-- [ ] 13.2 Update homepage with project info
-- [ ] 13.3 Add links to Questions and Dashboard pages
-- [ ] 13.4 Add Persian translations for all UI text
+- [x] 13.1 Create navigation header component
+- [x] 13.2 Update homepage with project info
+- [x] 13.3 Add links to Questions and Dashboard pages
+- [x] 13.4 Add Persian translations for all UI text
+
+**Files:** `src/components/Header.tsx`, `src/app/page.tsx`, `src/app/login/page.tsx`, `src/app/register/page.tsx`, `src/app/questions/page.tsx`, `src/app/dashboard/page.tsx`, `src/app/not-found.tsx`
+
+---
+
+### Task: Routes & 404 Fix
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Add missing pages so all URLs resolve; fix 404 on all routes
+
+**Done:** Root page, login, register, questions, dashboard, custom not-found; shared Header with nav, language switcher, auth button.
+
+---
+
+### Task: Font Loading Fix
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Fix Vazir font not loading
+
+**Done:** Moved font variable to `html`; removed circular `--font-vazir` from Tailwind theme; added `.font-vazir` utility; default `font-vazir` on html for first paint.
+
+---
+
+### Task: Dashboard Auth & User Menu
+**Status:** Completed ✅
+**Date Completed:** 2026-02-15
+**Description:** Restrict dashboard to logged-in users; show username and avatar; add logout
+
+**Done:** Dashboard redirects to `/login` when not authenticated; Header shows Dashboard link only when logged in; AuthButton shows user avatar (or initials), display name, dropdown with email and logout; logout clears session and redirects to home.
 
 ---
 
@@ -120,21 +138,6 @@ This document tracks all tasks and changes made to the project.
 - [ ] 17.2 Configure production build
 - [ ] 17.3 Add deployment scripts
 - [ ] 17.4 Setup CI/CD if needed
-
----
-
-### Task 19: Multilingual Support (i18n)
-**Status:** Pending
-**Description:** Add internationalization support for multiple languages
-
-**Subtasks:**
-- [ ] 19.1 Setup i18n library (next-intl or similar)
-- [ ] 19.2 Create translation files for Persian (fa)
-- [ ] 19.3 Create translation files for English (en)
-- [ ] 19.4 Add language switcher component
-- [ ] 19.5 Implement language detection middleware
-- [ ] 19.6 Update database schema to support translations
-- [ ] 19.7 Apply translations to all UI components
 
 ---
 
@@ -174,13 +177,14 @@ This document tracks all tasks and changes made to the project.
 ---
 
 ### Task 11: User Authentication
-**Status:** Completed
+**Status:** Completed ✅
 **Description:** Implement user authentication with Supabase Auth
 
 **Subtasks:**
 - [x] 11.1 Create auth context and hooks
 - [x] 11.2 Create login page (`/login`)
 - [x] 11.3 Create register page (`/register`)
-- [x] 11.4 Create auth middleware
-- [x] 11.5 Add logout functionality
-- [x] 11.6 Add Persian translations for all UI text
+- [x] 11.4 Auth-based redirects (e.g. dashboard protected)
+- [x] 11.5 Logout (user menu dropdown with logout)
+- [x] 11.6 Persian/English translations for auth UI
+- [x] Logged-in UI: username, avatar/initials, dropdown with email and logout; dashboard link only when authenticated

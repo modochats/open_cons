@@ -2,11 +2,13 @@
 
 import Link from 'next/link'
 import { useI18n } from '@/contexts/I18nContext'
+import { useAuth } from '@/contexts/AuthContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { AuthButton } from '@/components/auth/AuthButton'
 
 export function Header() {
   const { t } = useI18n()
+  const { user } = useAuth()
 
   return (
     <header className="sticky top-0 z-50 border-b border-dark-700 bg-dark-900/95 backdrop-blur">
@@ -21,9 +23,11 @@ export function Header() {
           <Link href="/questions" className="text-gray-300 hover:text-white transition-colors">
             {t('navigation.questions')}
           </Link>
-          <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
-            {t('navigation.dashboard')}
-          </Link>
+          {user && (
+            <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
+              {t('navigation.dashboard')}
+            </Link>
+          )}
           <LanguageSwitcher />
           <AuthButton />
         </div>
